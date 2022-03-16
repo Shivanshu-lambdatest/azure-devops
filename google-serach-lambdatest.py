@@ -1,6 +1,7 @@
 #!/usr/local/bin/python
 
 import time
+import os
 import multiprocessing
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
@@ -11,12 +12,14 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options as ChromeOptions
 from selenium.webdriver.chrome.options import Options
 
+build_name = os.getenv("LT_BUILD_NAME")
+
 def call():
     desired_cap = {
         "browserName":"Chrome",
         "console": True,
-        "build": "Idle Timeout issue-10",
-        "name" : "Test 1",
+        "build": build_name,
+        "name" : "Test Shiv 3",
         "version":"latest",                   #88.0
         "headless":False,
         "network": False,
@@ -27,7 +30,7 @@ def call():
         "w3c":True
     }
     try:
-        url = "https://divyanks:XFSP1IqZMWTXUC1iwbVqFCClLX654vuFg8OZUMyCfwbfygavq1@hub.lambdatest.com/wd/hub"
+        url = "https://shivanshus:EErB4HiGjznFLP2uXiDYlxTIXtuN9MQI5efwn7nZkDB8G2jVF3@hub.lambdatest.com/wd/hub"
         print(desired_cap)
         driver=webdriver.Remote(desired_capabilities=desired_cap,command_executor=url)
         print(driver.session_id)
@@ -57,4 +60,3 @@ if __name__ == '__main__':
         p = multiprocessing.Process(target=call)
         jobs.append(p)
         p.start()
-
