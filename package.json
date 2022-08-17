@@ -1,0 +1,11 @@
+{
+  "name": "fetchsession-sample",
+  "version": "1.0.0",
+  "description": "fetchsession API Sample",
+  "main": "test.js",
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@lambdatest/node-fetch-sessions": "^1.0.2"
+  }
+}
